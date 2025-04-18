@@ -4,7 +4,7 @@ TalentGap is an AI-powered career platform that helps professionals identify ski
 
 ## 🚀 Live Demo
 
-[View Live Demo](https://github.com/LakshayD02/TalentGap_SaaS_Prototype/blob/main/Website.jpeg)
+[Website Look](https://github.com/LakshayD02/TalentGap_SaaS_Prototype/blob/main/Website.jpeg)
 
 ## ✨ Features
 
