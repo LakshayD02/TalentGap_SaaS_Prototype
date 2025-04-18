@@ -1,12 +1,10 @@
 # TalentGap
 
-![TalentGap Logo](https://your-logo-url-here.png)
-
 TalentGap is an AI-powered career platform that helps professionals identify skill gaps, discover career opportunities, and accelerate their professional growth. The platform analyzes resumes, provides personalized skill assessments, and creates tailored career roadmaps.
 
 ## 🚀 Live Demo
 
-[View Live Demo](https://your-demo-url-here.com)
+[View Live Demo](https://github.com/LakshayD02/TalentGap_SaaS_Prototype/blob/main/Website.jpeg)
 
 ## ✨ Features
 
@@ -24,7 +22,7 @@ TalentGap is an AI-powered career platform that helps professionals identify ski
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **Storage**: Browser LocalStorage for user data and authentication
 - **Styling**: Custom CSS with animations and responsive design
-- **Deployment**: [Add your deployment platform]
+- **Deployment**: Netlify
 
 ## 📚 Libraries Used
 
@@ -48,14 +46,6 @@ cd talentgap
 
 1. For local development, simply open `index.html` in your browser
 2. Alternatively, use a local development server:
-
-```shellscript
-# Using Python
-python -m http.server
-
-# Using Node.js with http-server
-npx http-server
-```
 
 ## 🔧 Usage
 
