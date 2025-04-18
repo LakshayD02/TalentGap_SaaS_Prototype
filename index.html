@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalentGap - Accelerate your professional journey</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+  <div class="page-overlay" id="pageOverlay"></div>
+  
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+  
+  <!-- Auth Modals -->
+  <div class="auth-modal" id="loginModal">
+    <div class="auth-modal-content">
+      <div class="auth-header">
+        <h2>Login to TalentGap</h2>
+        <button class="close-modal" data-modal="loginModal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </div>
+        <p class="auth-switch">Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="auth-modal" id="signupModal">
+    <div class="auth-modal-content">
+      <div class="auth-header">
+        <h2>Create an Account</h2>
+        <button class="close-modal" data-modal="signupModal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <form id="signupForm">
+        <div class="form-group">
+          <label for="signupName">Full Name</label>
+          <input type="text" id="signupName" required>
+        </div>
+        <div class="form-group">
+          <label for="signupEmail">Email</label>
+          <input type="email" id="signupEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="signupPassword">Password</label>
+          <input type="password" id="signupPassword" required>
+        </div>
+        <div class="form-group">
+          <label for="signupConfirmPassword">Confirm Password</label>
+          <input type="password" id="signupConfirmPassword" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+        </div>
+        <p class="auth-switch">Already have an account? <a href="#" id="showLogin">Login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <header>
+    <nav class="container">
+      <div class="nav-wrapper">
+        <div class="logo">
+          <h2>TalentGap</h2>
+        </div>
+        
+        <div class="nav-toggle" id="navToggle">
+          <i data-lucide="menu"></i>
+        </div>
+        
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#demo">Demo</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+        
+        <!-- Auth buttons for logged out users -->
+        <div class="auth-buttons" id="authButtons">
+          <a href="#" class="btn btn-outline" id="loginBtn">Log In</a>
+          <a href="#" class="btn btn-primary" id="signupBtn">Sign Up</a>
+        </div>
+        
+        <!-- User menu for logged in users (hidden by default) -->
+        <div class="user-menu" id="userMenu" style="display: none;">
+          <div class="user-avatar" id="userAvatar">
+            <i data-lucide="user"></i>
+          </div>
+          <div class="user-dropdown" id="userDropdown">
+            <div class="user-dropdown-header">
+              <p id="userDisplayName">User Name</p>
+              <p id="userEmail" class="user-email">user@example.com</p>
+            </div>
+            <ul class="user-dropdown-menu">
+              <li><a href="#"><i data-lucide="user"></i> Profile</a></li>
+              <li><a href="#"><i data-lucide="settings"></i> Settings</a></li>
+              <li><a href="#" id="logoutBtn"><i data-lucide="log-out"></i> Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Completely Redesigned Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-parallax-container">
+      <div class="parallax-layer layer-1" id="parallaxLayer1"></div>
+      <div class="parallax-layer layer-2" id="parallaxLayer2"></div>
+      <div class="parallax-layer layer-3" id="parallaxLayer3"></div>
+      <div class="parallax-overlay"></div>
+    </div>
+    
+    <div class="container">
+      <div class="hero-content-container">
+        <div class="hero-content animate__animated animate__fadeIn">
+          <div class="hero-badge">AI-Powered Career Platform</div>
+          <h1 class="hero-title">Discover Your <span class="highlight">Career Potential</span></h1>
+          <p class="hero-description">
+            TalentGap uses advanced AI to analyze your skills, identify gaps, and create a personalized roadmap to accelerate your professional growth.
+          </p>
+          <div class="hero-cta">
+            <a href="#demo" class="btn btn-primary btn-large">Analyze Your Resume</a>
+            <a href="#features" class="btn btn-outline btn-large">Explore Features</a>
+          </div>
+        </div>
+        
+        <div class="hero-stats animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i data-lucide="users"></i>
+            </div>
+            <div class="stat-content">
+              <span class="stat-number">10K+</span>
+              <span class="stat-label">Success Stories</span>
+            </div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i data-lucide="badge-check"></i>
+            </div>
+            <div class="stat-content">
+              <span class="stat-number">98%</span>
+              <span class="stat-label">Satisfaction Rate</span>
+            </div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i data-lucide="building"></i>
+            </div>
+            <div class="stat-content">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Partner Companies</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#1e293b" fill-opacity="1" d="M0,192L48,176C96,160,192,128,288,128C384,128,480,160,576,186.7C672,213,768,235,864,224C960,213,1056,171,1152,154.7C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title animate__animated animate__fadeIn">Powerful Features</h2>
+      <div class="features-intro animate__animated animate__fadeIn">
+        <p>TalentGap offers a comprehensive suite of tools designed to help you navigate your career path with confidence. Our AI-powered platform provides personalized insights and actionable recommendations to accelerate your professional growth.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card animate__animated animate__fadeInUp">
+          <div class="feature-icon">
+            <i data-lucide="file-scan"></i>
+          </div>
+          <h3>AI Resume Analysis</h3>
+          <p>Our advanced AI scans your resume to extract skills, experience, and qualifications with industry-leading accuracy.</p>
+          <div class="feature-hover-content">
+            <p>Upload any format - PDF, DOCX, or even plain text. Our system handles it all and provides detailed insights within seconds.</p>
+            <a href="#demo" class="feature-link">Try it now <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+          <div class="feature-icon">
+            <i data-lucide="line-chart"></i>
+          </div>
+          <h3>Skill Gap Analysis</h3>
+          <p>Discover exactly what skills you need to develop to reach your career goals with our data-driven analysis.</p>
+          <div class="feature-hover-content">
+            <p>We compare your profile against thousands of job descriptions to identify the most valuable skills to acquire for your target roles.</p>
+            <a href="#demo" class="feature-link">Learn more <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+          <div class="feature-icon">
+            <i data-lucide="target"></i>
+          </div>
+          <h3>Career Roadmap</h3>
+          <p>Get a personalized career development plan with recommended courses, certifications, and job opportunities.</p>
+          <div class="feature-hover-content">
+            <p>Our AI creates a step-by-step plan tailored to your goals, timeline, and learning preferences to help you reach your dream role.</p>
+            <a href="#demo" class="feature-link">See example <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+          <div class="feature-icon">
+            <i data-lucide="briefcase"></i>
+          </div>
+          <h3>Job Matching</h3>
+          <p>Discover job opportunities that align with your skills, experience, and career aspirations.</p>
+          <div class="feature-hover-content">
+            <p>Our intelligent matching algorithm connects you with positions where you'll thrive, not just survive, with personalized match scores.</p>
+            <a href="#demo" class="feature-link">Find matches <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
+          <div class="feature-icon">
+            <i data-lucide="graduation-cap"></i>
+          </div>
+          <h3>Learning Resources</h3>
+          <p>Access curated learning resources to develop the skills needed for your target roles.</p>
+          <div class="feature-hover-content">
+            <p>We partner with leading education platforms to recommend the most effective courses, books, and workshops for your career goals.</p>
+            <a href="#demo" class="feature-link">Explore resources <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 1s">
+          <div class="feature-icon">
+            <i data-lucide="users"></i>
+          </div>
+          <h3>Networking Insights</h3>
+          <p>Identify key connections and networking opportunities to accelerate your career growth.</p>
+          <div class="feature-hover-content">
+            <p>Discover industry events, professional groups, and potential mentors who can help you advance in your chosen field.</p>
+            <a href="#demo" class="feature-link">Connect now <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="features-cta">
+        <a href="#demo" class="btn btn-primary btn-large">Try TalentGap Today</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <h2 class="section-title animate__animated animate__fadeIn">How It Works</h2>
+      <div class="steps">
+        <div class="step-progress" id="stepProgress"></div>
+        <div class="step animate__animated animate__fadeInLeft">
+          <div class="step-number">1</div>
+          <div class="step-icon">
+            <i data-lucide="upload-cloud"></i>
+            <div class="step-icon-fill"></div>
+          </div>
+          <h3>Upload your resume</h3>
+          <p>Simply drag and drop your resume in any format. We support PDF, DOCX, and more.</p>
+        </div>
+        <div class="step animate__animated animate__fadeInLeft" style="animation-delay: 0.2s">
+          <div class="step-number">2</div>
+          <div class="step-icon">
+            <i data-lucide="search"></i>
+            <div class="step-icon-fill"></div>
+          </div>
+          <h3>Analyze your skills</h3>
+          <p>Our AI analyzes your skills and experience to identify gaps and opportunities.</p>
+        </div>
+        <div class="step animate__animated animate__fadeInLeft" style="animation-delay: 0.4s">
+          <div class="step-number">3</div>
+          <div class="step-icon">
+            <i data-lucide="check-circle"></i>
+            <div class="step-icon-fill"></div>
+          </div>
+          <h3>Get smart suggestions</h3>
+          <p>Receive personalized job matches and learning resources to advance your career.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo" id="demo">
+    <div class="container">
+      <h2 class="section-title animate__animated animate__fadeIn">Try It Yourself</h2>
+      <div class="demo-intro animate__animated animate__fadeIn">
+        <p>Experience the power of TalentGap by uploading your resume. Our AI will analyze your skills, identify gaps, and provide personalized recommendations to help you advance your career.</p>
+      </div>
+      <div class="demo-container animate__animated animate__fadeInUp">
+        <div class="upload-area" id="uploadArea">
+          <i data-lucide="file-text"></i>
+          <h3>Drop your resume here</h3>
+          <p>or</p>
+          <label for="fileUpload" class="btn btn-primary">Browse Files</label>
+          <input type="file" id="fileUpload" accept=".pdf,.doc,.docx" hidden>
+          <p class="file-types">Supports PDF, DOC, DOCX</p>
+        </div>
+        <div class="results-area" id="resultsArea">
+          <div class="loading-indicator" id="loadingIndicator">
+            <div class="spinner"></div>
+            <p>Analyzing your resume...</p>
+          </div>
+          <div class="results-content" id="resultsContent">
+            <h3>Your Skill Analysis</h3>
+            <div id="skillAnalysisContent">
+              <!-- Content will be dynamically generated -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title animate__animated animate__fadeIn">What Our Users Say</h2>
+        <div class="section-intro animate__animated animate__fadeIn">
+          <p>Join thousands of professionals who have transformed their careers with TalentGap.</p>
+        </div>
+      </div>
+      <div class="testimonials-carousel">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <!-- Testimonials will be dynamically generated -->
+        </div>
+        
+        <div class="carousel-dots" id="testimonialDots">
+          <!-- Dots will be dynamically generated -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="section-title animate__animated animate__fadeIn">About the Developer</h2>
+      <div class="about-card animate__animated animate__fadeInUp">
+        <div class="about-header">
+          <div class="about-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdulKzfxtrPabY_OaxS6yFVcT0tEYdSSihkQ&s" alt="Lakshay Dhoundiyal">
+          </div>
+          <div class="about-title">
+            <h3>Lakshay Dhoundiyal</h3>
+            <p class="title">Full Stack Developer & AI Enthusiast</p>
+          </div>
+        </div>
+        <div class="about-content">
+          <p class="bio">
+            With a passion for creating innovative solutions that bridge technology and human needs, Lakshay developed TalentGap to help professionals navigate their career journeys. Combining expertise in AI, web development, and user experience design, he built this platform to make career advancement more accessible and personalized for everyone.
+          </p>
+          <div class="about-stats">
+            <div class="about-stat">
+              <span class="stat-value">5+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="about-stat">
+              <span class="stat-value">20+</span>
+              <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="about-stat">
+              <span class="stat-value">10K+</span>
+              <span class="stat-label">Users Helped</span>
+            </div>
+          </div>
+          <div class="dev-social">
+             <a href="https://github.com/LakshayD02" target="_blank" class="social-btn"><i data-lucide="github"></i> GitHub</a>
+              <a href="https://www.linkedin.com/in/lakshay-dhoundiyal-531b25259" target="_blank" class="social-btn"><i data-lucide="linkedin"></i> LinkedIn</a>
+              <a href="https://codolio.com/profile/LakshayD02" target="_blank" class="social-btn"><i data-lucide="code"></i> Codolio</a>
+              <a href="mailto:lakshay22dhoundiyal@gmail.com" class="social-btn"><i data-lucide="mail"></i> Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="chatbot-widget" id="chatbotWidget">
+    <div class="chatbot-toggle" id="chatbotToggle">
+      <i data-lucide="message-circle"></i>
+    </div>
+    <div class="chatbot-container" id="chatbotContainer">
+      <div class="chatbot-header">
+        <h3>TalentGap Assistant</h3>
+        <button class="close-btn" id="chatbotClose">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="chatbot-messages" id="chatbotMessages">
+        <div class="message bot">
+          <div class="message-content">
+            <p>Hi there! I'm your TalentGap assistant. How can I help you today?</p>
+          </div>
+        </div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatbotInput" placeholder="Type your message...">
+        <button id="chatbotSend">
+          <i data-lucide="send"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3>TalentGap</h3>
+            <p>Navigate your professional journey with precision and confidence.</p>
+            <div class="social-icons">
+              <a href="https://facebook.com/" target="_blank"><i data-lucide="facebook"></i></a>
+              <a href="https://twitter.com/" target="_blank"><i data-lucide="twitter"></i></a>
+              <a href="https://linkedin.com/" target="_blank"><i data-lucide="linkedin"></i></a>
+              <a href="https://instagram.com/" target="_blank"><i data-lucide="instagram"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul class="footer-links">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Press</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <ul class="footer-links">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Guides</a></li>
+              <li><a href="#">API Documentation</a></li>
+              <li><a href="#">Community</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <ul class="footer-links">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+              <li><a href="#">GDPR</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-middle">
+      <div class="container">
+        <div class="newsletter">
+          <h4>Subscribe to our newsletter</h4>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 TalentGap. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
